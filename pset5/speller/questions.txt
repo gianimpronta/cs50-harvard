@@ -1,0 +1,19 @@
+0.  According to Merriam-Webster's Medical Dictionary,
+pneumonoultramicroscopicsilicovolcanoconiosis is a
+pneumoconiosis caused by inhalation of very fine
+silicate or quartz dust.
+1.  getrusage() returns resource usage measures for who, which can be RUSAGE_SELF, RUSAGE_CHILDREN or RUSAGE_THREAD.
+2.  struct getrusage has 16 members.
+3.  We pass "before" and "after" by reference because, otherwise the getrusage() function would create local copies of "before" and 
+"after" inside the scope of getrusage() and any modifications made by the function would have no effect on "before" and "after"
+outside the function.
+4. The c = fgetc(fp) is the most important thing in the for loop, the fgetc gets every character until it reaches the EOF. 
+Each character is tested if it is an alphabetical character or an apostrophe and not at the index 0 of the word, if so, the 
+character is appended to the word[], else if the character is a digit the word is consumed while the characters are alphanumerics, 
+that is, fgetc gets every character, not appending any to word[], until reach a space or something that's not an alphanumeric 
+character, else if the next character is not an alphabetical character, an apostrophe nor a digit, we must have reached the end of 
+the word, so we terminate the word by adding \0 to word[].
+5.  It is better to use fgetc because fscanf may interpret punctuation and numbers as a word and make things more complicated, 
+as well as read strings that are longer than LENGTH and cause a segmentation fault.
+6.  With const we prevent changes to the dictionary we're using and the word we're checking.
+

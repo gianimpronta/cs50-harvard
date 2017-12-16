@@ -1,0 +1,13 @@
+1.  stdint.h is a header file in the C standard library introduced in the C99 standard library that provides a set of typedefs 
+that specify exact-width integer types, together with the defined minimum and maximum allowable values for each type, using macros.
+2.  Using uint8_t, uint32_t, int32_t, and uint16_t in a program gives you control over the size of each type.
+3.  8 bits, 32 bits, 32 bits, 16 bits.
+4.  0x42 0x4D in hexadecimal, BM in ASCII.
+5.  "bfSize" is the size of the file in bytes while "biSize" is the size of the BITMAPINFOHEADER.
+6.  It means that the origin of the bitmap is on the upper-left corner.
+7.  The "biBitCount" is the field that defines the bitmap color depth.
+8.  The file doesn't exist or the file exists, but you don't have permissions.
+9.  Because all information is stored in only one unit of the type. 
+10. 3
+11. Sets the file position of the stream to the given offset.
+12. This is the position from where offset is added, in this case SEEK_CUR is the current file pointer position.
