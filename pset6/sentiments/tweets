@@ -1,0 +1,35 @@
+#!/usr/bin/env python3
+import os
+import sys
+import helpers 
+from analyzer import Analyzer
+from termcolor import colored
+
+def main():
+    
+    # ensure proper usage
+    if len(sys.argv) != 2:
+        sys.exit("Usage: ./tweets @screen_name")
+
+    # absolute paths to lists
+    positives = os.path.join(sys.path[0], "positive-words.txt")
+    negatives = os.path.join(sys.path[0], "negative-words.txt")
+
+    # instantialize analyzer and define screen name
+    screen_name = sys.argv[1]
+    analyzer = Analyzer(positives, negatives)
+    
+    #analyzing tweets
+    tweets = helpers.get_user_timeline(count=50, screen_name=screen_name)
+    for tweet in tweets:
+        score = analyzer.analyze(tweet)
+        line = str(score) + ' ' + tweet
+        if score > 0.0:
+            print(colored(line, "green"))
+        elif score < 0.0:
+            print(colored(line, "red"))
+        else:
+            print(colored(line, "yellow"))
+        
+if __name__ == '__main__':
+    main()

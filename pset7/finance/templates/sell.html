@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+{% block title %}
+   Sell
+{% endblock %}
+
+{% block main %}
+    <form action="{{ url_for('sell') }}" method="post">
+        <table class = "table table-striped">
+            <thead>
+                <tr>
+                    <th>Stock</th>
+                    <th>Quantity</th>
+                    <th>Last Quote</th>
+                    <th>Sell Quantity</th>
+                </tr>
+            </thead>
+            <tbody>
+                <fieldset>
+                    {% for stock in stocks %}
+                    <tr>
+                        <td>
+                           <input type="radio" name="stock" value= {{ stock.name }} > {{ stock.name }}
+                        </td>
+                        <td>{{ stock.shares }}</td>
+                        <td>{{ stock.quote }}</td>
+                        <td>
+                            <input type="number" name="quantity" min="0" placeholder="How many?"/>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </fieldset>
+            </tbody>
+        </table>
+        <div class="form-group">
+            <button class="btn btn-primary" type="submit">Sell</button>
+        </div>
+    </form>
+{% endblock %}

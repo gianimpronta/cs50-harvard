@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block main %}
+<table class = "table table-striped">
+    <thead>
+        <tr>
+            <td>Stock</td>
+            <td>Quantity</td>
+            <td>Last Quote</td>
+            <td>Total</td>
+        </tr>
+    </thead>
+    <tbody>
+        {% for stock in stocks %}
+        <tr>
+            <td>{{ stock.name }}</td>
+            <td>{{ stock.shares }}</td>
+            <td>{{ stock.quote }}</td>
+            <td>{{ stock.total }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+    <tfoot>
+        <tr>
+            <td>Total in Stocks: </td>
+            <td></td>
+            <td></td>
+            <td>{{ total }}</td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                CASH
+            </td>
+            <td>
+                {{ balance }}
+            </td>
+        </tr>
+    </tfoot>
+</table>
+{% endblock %}

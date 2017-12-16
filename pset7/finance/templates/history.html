@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block main %}
+<table class = "table table-striped">
+    <thead>
+        <tr>
+            <th>Action</th>
+            <th>Stock</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Date</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for stock in stocks %}
+        <tr>
+            <td>{{ stock.action }}</td>
+            <td>{{ stock.stock }}</td>
+            <td>{{ stock.shares }}</td>
+            <td>{{ stock.price }}</td>
+            <td>{{ stock.date }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

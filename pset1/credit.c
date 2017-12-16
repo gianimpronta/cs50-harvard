@@ -43,7 +43,7 @@ int sec_to_last(long long ccn)
         sum += x;
         ccn /= 100;
     }
-    
+    printf("sectolast: %i\n", sum);   
     return sum;
 }
 
@@ -59,7 +59,7 @@ int remaining(long long ccn)
         sum += x;
         ccn /= 100;
     }
-
+    printf("remaining: %u\n", sum);
     return sum;
 }
 
